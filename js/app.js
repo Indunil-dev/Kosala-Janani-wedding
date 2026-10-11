@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Luxury Wedding E-Invitation JavaScript
  * Custom-tailored for Kosala & Janani (Hotel Suneragira, Nikaweratiya)
  */
@@ -10,8 +10,8 @@ window.WEDDING_CONFIG = {
     bride: "Janani",
     groomFull: "Kosala",
     brideFull: "Janani",
-    groomParents: "Groom (à¶¸à¶±à¶¸à·à¶½à¶ºà·)",
-    brideParents: "Bride (à¶¸à¶±à¶¸à·à¶½à·’à¶º)"
+    groomParents: "Groom",
+    brideParents: "Bride"
   },
   // Wedding Date & Time: Thursday, 19th November 2026 at 09:30 AM
   eventDate: "2026-11-19T09:30:00",
@@ -277,7 +277,7 @@ function initCountdownTimer() {
       minutesEl.textContent = "00";
       secondsEl.textContent = "00";
       const banner = document.getElementById('countdown-banner');
-      if (banner) banner.textContent = "The Auspicious Wedding Day is Here! ðŸ’âœ¨";
+      if (banner) banner.textContent = "The Auspicious Wedding Day is Here!";
       return;
     }
 
@@ -344,7 +344,7 @@ function initCalendarButton() {
     e.preventDefault();
     const config = window.WEDDING_CONFIG;
     const title = encodeURIComponent(`Wedding of ${config.couple.groom} & ${config.couple.bride}`);
-    const details = encodeURIComponent(`We invite you to share with us this joyful and touching day of our wedding at ${config.venue.name}, ${config.venue.city}! (Time: 9.30 AM â€“ 3.30 PM)`);
+    const details = encodeURIComponent(`We invite you to share with us this joyful and touching day of our wedding at ${config.venue.name}, ${config.venue.city}! (Time: 9.30 AM - 3.30 PM)`);
     const location = encodeURIComponent(`${config.venue.name}, ${config.venue.address}`);
     
     // Start: Nov 19 2026, 09:30 AM (SLT UTC+5:30 -> UTC 04:00:00)
@@ -372,9 +372,9 @@ function initRsvpForm() {
     const wishes = document.getElementById('rsvp-wishes').value.trim();
 
     const config = window.WEDDING_CONFIG;
-    const statusText = attending === 'yes' ? 'âœ… Will Attend' : 'âŒ Unable to Attend';
+    const statusText = attending === 'yes' ? 'Will Attend' : 'Unable to Attend';
 
-    let message = `*ðŸŒ¸ Wedding RSVP - ${config.couple.groom} & ${config.couple.bride}*\n\n`;
+    let message = `*Wedding RSVP - ${config.couple.groom} & ${config.couple.bride}*\n\n`;
     message += `*Guest Name:* ${name}\n`;
     message += `*Attendance Status:* ${statusText}\n`;
     if (attending === 'yes') {
@@ -520,5 +520,3 @@ function initFloatingParticles() {
   setInterval(spawnButterfly, 7000);
   setTimeout(spawnButterfly, 1500);
 }
-
-
