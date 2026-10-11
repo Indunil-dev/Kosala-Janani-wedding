@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Guest List Manager & WhatsApp Link Generator</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] min-h-screen">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-amber-700 font-bold border border-amber-300">
+          💌
+        </div>
+        <div>
+          <h1 class="text-base font-bold text-slate-900 leading-tight">Guest List & WhatsApp Manager</h1>
+          <p class="text-xs text-slate-500">Kosala & Janani's Wedding Invitation</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="settings-btn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-xs font-semibold text-slate-700 transition">
+          <i data-lucide="settings" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Settings</span>
+        </button>
+        <a href="index.html" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold shadow-sm transition">
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+          <span>View Live Invitation</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+    <!-- KPI Metric Cards -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Guests</p>
+          <h3 id="stat-total-guests" class="text-2xl font-bold text-slate-900 mt-1">0</h3>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+          <i data-lucide="users" class="w-5 h-5"></i>
+        </div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Reserved Seats</p>
+          <h3 id="stat-total-seats" class="text-2xl font-bold text-slate-900 mt-1">0</h3>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+          <i data-lucide="armchair" class="w-5 h-5"></i>
+        </div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Sent on WhatsApp</p>
+          <h3 id="stat-sent-links" class="text-2xl font-bold text-emerald-600 mt-1">0</h3>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+          <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+        </div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Pending to Send</p>
+          <h3 id="stat-pending-links" class="text-2xl font-bold text-amber-600 mt-1">0</h3>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+          <i data-lucide="clock" class="w-5 h-5"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add New Guest Card -->
+    <section class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-base font-bold text-slate-900">Add Guest & Generate WhatsApp Link</h2>
+          <p class="text-xs text-slate-500">Enter guest details to create their unique personalized invitation link</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="loadSampleGuests()" class="text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-600 font-medium transition">
+            Load Samples
+          </button>
+          <button onclick="clearAllGuests()" class="text-xs px-2.5 py-1.5 rounded-lg border border-red-200 text-red-600 hover:bg-red-50 font-medium transition">
+            Clear All
+          </button>
+        </div>
+      </div>
+
+      <form id="add-guest-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <!-- Guest Full Name / Salutation -->
+        <div class="lg:col-span-2">
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Guest Name / Family Name *</label>
+          <input type="text" id="new-guest-name" required placeholder="e.g. Mr. & Mrs. Sunimal Fernando" class="w-full text-xs px-3 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none">
+        </div>
+
+        <!-- Phone Number -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp Phone (Mobile)</label>
+          <input type="text" id="new-guest-phone" placeholder="0771234567 or 9477..." class="w-full text-xs px-3 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none">
+        </div>
+
+        <!-- Seats & Table -->
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Seats</label>
+            <input type="number" id="new-guest-seats" value="2" min="1" max="10" class="w-full text-xs px-3 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Table No</label>
+            <input type="text" id="new-guest-table" placeholder="04" class="w-full text-xs px-3 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none">
+          </div>
+        </div>
+
+        <!-- Category & Add Button -->
+        <div class="flex items-end gap-2">
+          <div class="flex-1">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Category</label>
+            <select id="new-guest-category" class="w-full text-xs px-3 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 outline-none bg-white">
+              <option value="Groom Family">Groom Family</option>
+              <option value="Bride Family">Bride Family</option>
+              <option value="Relatives">Relatives</option>
+              <option value="Friends">Friends</option>
+              <option value="Colleagues">Colleagues</option>
+              <option value="VIP">VIP</option>
+            </select>
+          </div>
+          <button type="submit" class="px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold shadow-sm transition whitespace-nowrap">
+            + Add Guest
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Guest List Table Section -->
+    <section class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <!-- Search & Filters Toolbar -->
+      <div class="p-4 sm:p-5 border-b border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <div class="relative w-full sm:w-64">
+            <input type="text" id="guest-search" placeholder="Search by name or phone..." class="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl outline-none focus:border-amber-500">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+          </div>
+          <select id="filter-category" class="text-xs px-3 py-2 border border-slate-200 rounded-xl outline-none bg-white">
+            <option value="all">All Categories</option>
+            <option value="Groom Family">Groom Family</option>
+            <option value="Bride Family">Bride Family</option>
+            <option value="Relatives">Relatives</option>
+            <option value="Friends">Friends</option>
+            <option value="Colleagues">Colleagues</option>
+            <option value="VIP">VIP</option>
+          </select>
+        </div>
+
+        <!-- Export CSV Button -->
+        <button onclick="exportToCSV()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-50 text-xs font-semibold text-slate-700 transition w-full sm:w-auto justify-center">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>Export Guest List (CSV / Excel)</span>
+        </button>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-50/80 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+              <th class="py-3 px-4">Guest Name</th>
+              <th class="py-3 px-4 text-center">Seats</th>
+              <th class="py-3 px-4">Phone</th>
+              <th class="py-3 px-4 text-center">Status</th>
+              <th class="py-3 px-4 text-center">WhatsApp Action</th>
+              <th class="py-3 px-4 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="guest-table-body">
+            <!-- Dynamically populated via admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       SETTINGS MODAL
+       ========================================================================= -->
+  <div id="settings-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-xl border border-slate-200 animate-fade-in max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <h3 class="text-base font-bold text-slate-900">Wedding & Link Settings</h3>
+        <button id="close-settings-btn" class="text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="settings-form" class="space-y-4 mt-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">
+            GitHub Pages / Website Base URL *
+          </label>
+          <input type="url" id="setting-base-url" required class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-amber-500 font-mono" placeholder="https://username.github.io/INV/index.html">
+          <p class="text-[11px] text-slate-400 mt-1">The live URL where your wedding invitation is hosted</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Groom's Name</label>
+            <input type="text" id="setting-groom" required class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Bride's Name</label>
+            <input type="text" id="setting-bride" required class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-amber-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Venue Name</label>
+          <input type="text" id="setting-venue" required class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-amber-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">
+            Custom WhatsApp Greeting Template
+          </label>
+          <textarea id="setting-template" rows="5" class="w-full text-xs px-3 py-2 border border-slate-200 rounded-xl outline-none focus:border-amber-500 font-mono leading-relaxed"></textarea>
+          <p class="text-[10px] text-slate-400 mt-0.5">Tags: {GROOM}, {BRIDE}, {GUEST_NAME}, {INVITATION_URL}, {DATE}, {VENUE}, {SEATS}</p>
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">
+            Save Settings
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

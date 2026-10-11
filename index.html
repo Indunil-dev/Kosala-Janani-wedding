@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Wedding Invitation | Kosala & Janani</title>
+  
+  <!-- Open Graph Meta Tags for WhatsApp Sharing Previews -->
+  <meta property="og:title" content="Wedding Invitation - Kosala & Janani">
+  <meta property="og:description" content="We invite you to share with us this joyful and touching day of our wedding! Hotel Suneragira, Nikaweratiya. Tap to view your personalized invitation!">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Luxury Wedding Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet matching Lilac / Lavender & Gold Card -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#15101a] antialiased select-none">
+
+  <!-- Animated Floating Petals & Butterflies Container -->
+  <div id="floating-particles-container"></div>
+
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="assets/audio/wedding-music.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Floating Audio Mute/Play Button -->
+  <button id="audio-toggle-btn" class="audio-control-btn" title="Play Romantic Music" aria-label="Toggle Music">
+    <i data-lucide="music" class="w-5 h-5"></i>
+  </button>
+
+  <!-- =========================================================================
+       1. OPENING ENVELOPE / WAX SEAL COVER SCREEN
+       ========================================================================= -->
+  <div id="envelope-screen">
+    <div class="envelope-card animate-fade-in">
+      <!-- Butterfly & Sparkle Icon -->
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-purple-50 border border-purple-300/60 text-purple-700 shadow-sm mb-3">
+        <i data-lucide="sparkles" class="w-7 h-7 text-[#7b4f8d]"></i>
+      </div>
+
+      <p class="text-[11px] uppercase tracking-[0.25em] text-[#6f6275] font-cinzel font-semibold mb-1">Wedding Invitation</p>
+      <h1 class="font-script text-5xl sm:text-6xl text-[#29222b] my-1 leading-[1.25] py-1">Kosala & Janani</h1>
+      <p class="text-xs text-purple-800 tracking-wider font-cinzel font-semibold">Thursday, 19th November 2026</p>
+      <p class="text-[11px] text-[#6f6275]">Hotel Suneragira, Nikaweratiya</p>
+
+      <div class="gold-divider">
+        <span class="text-purple-600 text-xs">❦</span>
+      </div>
+
+      <!-- Personalized Envelope Guest Badge -->
+      <div class="bg-purple-50/80 border border-purple-200/80 rounded-xl py-3 px-4 my-3 text-center">
+        <p class="text-[10px] uppercase tracking-wider text-[#6f6275] font-medium">Specially Invited</p>
+        <h3 id="envelope-guest-name" class="font-serif font-bold text-lg text-[#29222b] mt-0.5">Honored Guest</h3>
+      </div>
+
+      <!-- Wax Seal Interactive Button -->
+      <button id="open-envelope-btn" class="wax-seal-btn group focus:outline-none" aria-label="Open Invitation">
+        <span class="wax-seal-inner">OPEN<br><span style="font-size: 15px; letter-spacing: 0.15em; font-weight: 700;">HERE</span></span>
+      </button>
+
+      <p class="text-xs text-purple-900/80 font-cinzel tracking-wider uppercase mt-2 animate-pulse font-semibold">
+        Tap to Open Invitation
+      </p>
+      <p class="text-[11px] text-[#6f6275]/80 mt-0.5">ආරාධනා පත්‍රය විවෘත කරන්න</p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. MAIN INVITATION CARD (MOBILE-FIRST APP)
+       ========================================================================= -->
+  <main class="invitation-wrapper bg-wedding-pattern min-h-screen pb-16">
+    <div id="main-invitation-content" class="px-5 pt-8 pb-8 space-y-7">
+
+      <!-- Top Header / Monogram Section -->
+      <header class="text-center pt-2">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-100/90 via-fuchsia-100/80 to-purple-100/90 border border-purple-300/70 text-[#683679] text-xs font-cinzel tracking-widest uppercase mb-3 shadow-sm">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#9333ea]"></i>
+          <span class="font-bold">Save The Date</span>
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#9333ea]"></i>
+        </div>
+
+        <div class="relative inline-block px-3 py-1">
+          <h1 class="font-script text-5xl sm:text-6xl text-[#29222b] leading-[1.3] animate-float">
+            <span class="vibrant-text-gradient">Kosala</span> &amp; <span class="vibrant-text-gradient">Janani</span>
+          </h1>
+          <span class="absolute -top-3 -right-5 text-xl animate-bounce">🦋</span>
+        </div>
+
+        <p class="font-cinzel text-xs text-purple-900 tracking-[0.25em] uppercase font-bold mt-2">Wedding Invitation</p>
+        <p class="text-xs text-[#6f6275] mt-1 font-medium">අපගේ මංගල ආරාධනය</p>
+
+        <div class="gold-divider">
+          <i data-lucide="gem" class="w-4 h-4 text-[#9333ea]"></i>
+        </div>
+      </header>
+
+      <!-- Calendar Highlight Card (matching printed card layout) -->
+      <section class="wedding-card text-center py-6 px-4">
+        <div class="inline-flex items-center justify-center gap-2 mb-2 text-purple-900 font-cinzel font-bold text-sm tracking-widest">
+          <span>🌸 NOVEMBER 2026 🌸</span>
+        </div>
+
+        <!-- Mini Calendar Grid preview with vibrant styling -->
+        <div class="max-w-xs mx-auto bg-gradient-to-b from-purple-50/70 to-fuchsia-50/50 rounded-2xl p-4 border border-purple-200/80 my-2 shadow-inner">
+          <div class="grid grid-cols-7 gap-1 text-[11px] font-bold text-purple-950 mb-2 border-b border-purple-200/80 pb-1.5">
+            <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span class="text-rose-600 font-black">THU</span><span>FRI</span><span>SAT</span>
+          </div>
+          <div class="grid grid-cols-7 gap-1 text-xs text-slate-700 font-semibold items-center">
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+            <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+            <span>15</span><span>16</span><span>17</span><span>18</span>
+            <!-- Circled 19 with pulse animation -->
+            <span class="flex items-center justify-center font-bold text-white bg-gradient-to-r from-rose-600 via-fuchsia-600 to-purple-600 rounded-full w-7 h-7 mx-auto shadow-md ring-2 ring-rose-300 animate-pulse">19</span>
+            <span>20</span><span>21</span>
+            <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+            <span>29</span><span>30</span>
+          </div>
+        </div>
+
+        <div class="mt-4 flex items-center justify-center gap-4 bg-white/70 py-3 px-4 rounded-xl border border-purple-100">
+          <div class="text-right">
+            <span class="block text-xs uppercase font-cinzel font-bold text-purple-900">Thursday</span>
+            <span class="block text-3xl font-serif font-black text-rose-600 leading-none">19</span>
+            <span class="block text-[10px] uppercase font-semibold text-slate-500">November 2026</span>
+          </div>
+          <div class="h-10 w-px bg-purple-200"></div>
+          <div class="text-left">
+            <span class="block text-xs font-bold text-slate-900">Time: 9.30 AM – 3.30 PM</span>
+            <span class="block text-xs text-purple-900 font-bold">Hotel Suneragira</span>
+            <span class="block text-[10px] text-slate-500 font-medium">Nikaweratiya</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Personalized Salutation Card -->
+      <section class="wedding-card text-center py-6 px-4">
+        <span class="text-xs uppercase tracking-widest text-purple-800 font-cinzel font-semibold">Warmly Invited</span>
+        <h2 id="guest-name-display" class="font-serif font-bold text-2xl text-[#29222b] mt-1 mb-2">Honored Guest</h2>
+        
+        <p class="text-xs font-medium text-slate-700 max-w-xs mx-auto leading-relaxed">
+          "We invite you to share with us this joyful and touching day of our wedding!"
+        </p>
+        <p class="text-[11px] text-[#6f6275] mt-1.5 italic">
+          අපගේ ජීවිතයේ මෙම ප්‍රීතිමත් සහ ආදරණීය මංගල දිනය අප හා එක්ව සැමරීමට ඔබට ගෞරවයෙන් ඇරයුම් කරමු!
+        </p>
+
+
+      </section>
+
+
+      <!-- Auspicious Date & Live Countdown Timer -->
+      <section class="wedding-card text-center py-6">
+        <span class="text-xs uppercase tracking-widest text-[#9333ea] font-cinzel font-bold">✨ Countdown To The Big Day ✨</span>
+        <h3 class="font-serif font-bold text-2xl text-[#29222b] mt-1.5">Thursday, 19th November 2026</h3>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100/80 text-purple-900 text-xs font-semibold mt-1">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-purple-700"></i>
+          <span>උත්සවය ආරම්භය: පෙ.ව. 09:30 ට</span>
+        </div>
+
+        <!-- 4-Box Countdown Grid -->
+        <div class="grid grid-cols-4 gap-2.5 my-5">
+          <div class="countdown-box">
+            <div id="cd-days" class="countdown-num">00</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-box">
+            <div id="cd-hours" class="countdown-num">00</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-box">
+            <div id="cd-minutes" class="countdown-num">00</div>
+            <div class="countdown-label">Mins</div>
+          </div>
+          <div class="countdown-box">
+            <div id="cd-seconds" class="countdown-num">00</div>
+            <div class="countdown-label">Secs</div>
+          </div>
+        </div>
+
+        <p id="countdown-banner" class="text-xs text-[#7c3aed] font-medium italic">"Counting down to the beginning of our forever" 💍💖</p>
+      </section>
+
+
+
+      <!-- Pre-Shoot Moments Photo Gallery -->
+      <section class="wedding-card">
+        <div class="text-center mb-5">
+          <span class="text-xs uppercase tracking-widest text-[#7b4f8d] font-cinzel font-semibold">Our Journey in Love</span>
+          <h3 class="font-serif font-bold text-xl text-[#29222b] mt-1">Pre-Shoot Moments</h3>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Featured Photo 1: Romantic Forehead Kiss -->
+          <div class="gallery-item featured">
+            <img src="assets/images/photo-1.jpg" alt="Kosala & Janani Pre-Shoot 1" loading="lazy">
+          </div>
+          <!-- Photo 2: Bouquet Portrait -->
+          <div class="gallery-item">
+            <img src="assets/images/photo-2.jpg" alt="Kosala & Janani Pre-Shoot 2" loading="lazy">
+          </div>
+          <!-- Photo 3: Gentle Embrace -->
+          <div class="gallery-item">
+            <img src="assets/images/photo-5.jpg" alt="Kosala & Janani Pre-Shoot 3" loading="lazy">
+          </div>
+          <!-- Photo 4: Mountain View Portrait -->
+          <div class="gallery-item">
+            <img src="assets/images/photo-3.jpg" alt="Kosala & Janani Pre-Shoot 4" loading="lazy">
+          </div>
+          <!-- Photo 5: Back-to-Back Portrait -->
+          <div class="gallery-item">
+            <img src="assets/images/photo-4.jpg" alt="Kosala & Janani Pre-Shoot 5" loading="lazy">
+          </div>
+        </div>
+
+        <div class="mt-4 text-center">
+          <p class="text-[11px] text-purple-800/80 italic">Captured with love & joyful memories</p>
+        </div>
+      </section>
+
+      <!-- Venue & Location Section (Hotel Suneragira, Nikaweratiya) -->
+      <section class="wedding-card text-center">
+        <span class="text-xs uppercase tracking-widest text-[#7b4f8d] font-cinzel font-semibold">The Destination</span>
+        <h3 class="font-serif font-bold text-xl text-[#29222b] mt-1">Wedding Venue</h3>
+        
+        <div class="my-3 p-4 bg-purple-50/70 rounded-2xl border border-purple-200/70 text-center">
+          <div class="inline-flex p-3 rounded-full bg-white shadow-sm border border-purple-200 mb-2">
+            <i data-lucide="map-pin" class="w-6 h-6 text-[#7b4f8d]"></i>
+          </div>
+          <h4 class="font-serif font-bold text-lg text-[#29222b]">HOTEL SUNERAGIRA</h4>
+          <p class="font-semibold text-xs text-purple-900 tracking-wider">NIKAWERATIYA</p>
+          <p class="text-xs text-[#6f6275] mt-1">Time: 9.30 AM – 3.30 PM</p>
+        </div>
+
+        <!-- Google Maps Navigation & Calendar Buttons -->
+        <div class="space-y-2 mt-4">
+          <a href="https://maps.google.com/?q=Hotel+Suneragira+Nikaweratiya" target="_blank" rel="noopener noreferrer" class="btn-gold">
+            <i data-lucide="navigation" class="w-4 h-4"></i>
+            <span>Open in Google Maps</span>
+          </a>
+          <button id="add-calendar-btn" class="btn-outline-gold">
+            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+            <span>Add to Google Calendar</span>
+          </button>
+        </div>
+      </section>
+
+
+
+      <!-- Interactive RSVP Form Section -->
+      <section class="wedding-card">
+        <div class="text-center mb-5">
+          <span class="text-xs uppercase tracking-widest text-[#7b4f8d] font-cinzel font-semibold">Kindly Respond</span>
+          <h3 class="font-serif font-bold text-xl text-[#29222b] mt-1">Wedding RSVP</h3>
+          <p class="text-xs text-[#6f6275]">Please confirm your attendance via WhatsApp</p>
+          <p class="text-[11px] text-[#6f6275]/80 mt-1">ඔබගේ පැමිණීම කරුණාවෙන් තහවුරු කරන්න</p>
+        </div>
+
+        <form id="wedding-rsvp-form" class="space-y-4">
+          <!-- Guest Name -->
+          <div>
+            <label class="block text-xs font-semibold text-[#29222b] mb-1">Your Name (ඔබගේ නම)</label>
+            <input type="text" id="rsvp-name" required class="form-input" placeholder="e.g. Kasun Perera & Family">
+          </div>
+
+          <!-- Attendance Option -->
+          <div>
+            <label class="block text-xs font-semibold text-[#29222b] mb-1.5">Will you attend? (පැමිණෙන්නේද?)</label>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="flex items-center gap-2 p-2.5 border border-purple-300/60 rounded-xl bg-purple-50/50 cursor-pointer text-xs font-medium">
+                <input type="radio" name="attendance" value="yes" checked class="text-purple-600 focus:ring-purple-500">
+                <span>Yes, Attending 💖</span>
+              </label>
+              <label class="flex items-center gap-2 p-2.5 border border-purple-200 rounded-xl bg-white cursor-pointer text-xs font-medium">
+                <input type="radio" name="attendance" value="no" class="text-purple-600 focus:ring-purple-500">
+                <span>Unable to Attend 🙏</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Guest Count -->
+          <div>
+            <label class="block text-xs font-semibold text-[#29222b] mb-1">Number of Guests Attending (සහභාගී වන සංඛ්‍යාව)</label>
+            <select id="rsvp-guests" class="form-input">
+              <option value="1" selected>1 Person</option>
+              <option value="2">2 Persons</option>
+              <option value="3">3 Persons</option>
+              <option value="4">4 Persons</option>
+              <option value="5">5 Persons</option>
+            </select>
+          </div>
+
+          <!-- Wishes / Message -->
+          <div>
+            <label class="block text-xs font-semibold text-[#29222b] mb-1">Blessings / Wishes (සුබපැතුම් පණිවිඩයක්)</label>
+            <textarea id="rsvp-wishes" rows="2" class="form-input" placeholder="Write your heartfelt wishes for the couple..."></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-whatsapp">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>Confirm RSVP on WhatsApp</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Wishes Wall / Guestbook -->
+      <section class="wedding-card">
+        <div class="text-center mb-4">
+          <span class="text-xs uppercase tracking-widest text-[#7b4f8d] font-cinzel font-semibold">Warm Wishes</span>
+          <h3 class="font-serif font-bold text-lg text-[#29222b] mt-0.5">Guest Blessings Wall</h3>
+          <p class="text-xs text-[#6f6275]">ආදරණීය සුබපැතුම්</p>
+        </div>
+
+        <div id="guestbook-list" class="space-y-2.5 max-h-64 overflow-y-auto pr-1">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </section>
+
+      <!-- Footer & Admin Navigation -->
+      <footer class="text-center pt-4 pb-2 space-y-3">
+        <div class="gold-divider">
+          <span class="font-script text-3xl text-[#7b4f8d]">Kosala & Janani</span>
+        </div>
+        <p class="font-serif italic text-xs text-[#6f6275]">
+          Thank you for being part of our beautiful beginning.
+        </p>
+        <p class="text-[10px] text-purple-900/70 uppercase tracking-widest font-cinzel font-semibold">
+          #KosalaWedsJanani • 19.11.2026
+        </p>
+
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       3. PRE-SHOOT GALLERY LIGHTBOX MODAL
+       ========================================================================= -->
+  <div id="gallery-lightbox" class="lightbox-modal">
+    <div class="lightbox-img-container">
+      <button id="lightbox-close-btn" class="lightbox-close" aria-label="Close Lightbox">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <img id="lightbox-image" src="" alt="Pre-shoot photo view">
+    </div>
+  </div>
+
+  <!-- App Script -->
+  <script src="js/app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
